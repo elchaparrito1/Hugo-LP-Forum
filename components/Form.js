@@ -32,7 +32,7 @@ const Form = () => {
       }
     }
     setBlank(false);
-    const res = await fetch('http://localhost:3000/api/rsvp', {
+    const res = await fetch('https://hugo-lp-forum.now.sh/api/rsvp', {
       method: 'post',
       body: JSON.stringify(state),
     });
