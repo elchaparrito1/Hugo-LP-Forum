@@ -7,7 +7,6 @@ handler.use(middleware);
 
 handler.get(async (req, res) => {
   const doc = await req.db.collection('rsvp').findOne();
-  console.log(doc);
   res.json(doc);
 });
 
