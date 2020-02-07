@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import Header from './Header';
+import { NavHeader } from './Header';
 
 const layoutStyle = {
   margin: 20,
@@ -10,7 +10,7 @@ const layoutStyle = {
 
 const Layout = props => (
   <div style={layoutStyle}>
-    <Header />
+    <NavHeader />
     {props.children}
   </div>
 );
