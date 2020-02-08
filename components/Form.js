@@ -39,7 +39,7 @@ const Form = () => {
       }
     }
     setBlank(false);
-    const res = await fetch(`${url}/api/rsvp`, {
+    const res = await fetch(`/api/rsvp`, {
       method: 'post',
       body: JSON.stringify(state),
     });
