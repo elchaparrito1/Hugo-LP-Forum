@@ -3,13 +3,7 @@ import fetch from 'isomorphic-unfetch';
 
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-const url =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000'
-    : 'https://hugo-lp-forum.now.sh';
-
 const Form = () => {
-  console.log(process.env.NODE_ENV);
   const [state, setState] = useState({
     rsvp: 'yes',
     firstName: '',
@@ -43,6 +37,8 @@ const Form = () => {
       method: 'post',
       body: JSON.stringify(state),
     });
+
+    console.log(res);
 
     if (res.status === 200) {
       setState({

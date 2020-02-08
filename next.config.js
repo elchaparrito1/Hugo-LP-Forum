@@ -4,6 +4,8 @@ const withCSS = require('@zeit/next-css');
 const { parsed: localEnv } = require('dotenv').config();
 const webpack = require('webpack');
 
+const isProd = process.env.NODE_ENV === 'production';
+
 module.exports = withCSS(
   withSass({
     webpack: config => {
@@ -16,6 +18,8 @@ module.exports = withCSS(
           },
         },
       });
+
+      config.devtool = isProd ? config.devtool : 'eval-source-map';
 
       config.plugins.push(new webpack.EnvironmentPlugin(localEnv));
 
