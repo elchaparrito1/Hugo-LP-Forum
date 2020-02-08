@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import getConfig from 'next/config';
-
-const { publicRuntimeConfig } = getConfig();
 
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+const url =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://hugo-lp-forum.now.sh';
+
 const Form = () => {
-  console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-  console.log(`${publicRuntimeConfig.host}/api/rsvp`);
-  console.log(process.env.HOST);
   const [state, setState] = useState({
     rsvp: 'yes',
     firstName: '',
@@ -27,7 +26,6 @@ const Form = () => {
   };
 
   const handleRSVP = async e => {
-    console.log(publicRuntimeConfig);
     e.preventDefault();
     const { rsvp, firstName, lastName, email } = state;
     const input = [rsvp, firstName, lastName, email];
@@ -39,7 +37,7 @@ const Form = () => {
       }
     }
     setBlank(false);
-    const res = await fetch(`${publicRuntimeConfig.host}/api/rsvp`, {
+    const res = await fetch(`${url}/api/rsvp`, {
       method: 'post',
       body: JSON.stringify(state),
     });

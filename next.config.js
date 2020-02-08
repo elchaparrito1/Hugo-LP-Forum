@@ -4,8 +4,6 @@ const withCSS = require('@zeit/next-css');
 const { parsed: localEnv } = require('dotenv').config();
 const webpack = require('webpack');
 
-console.log(process.env.HOST);
-
 module.exports = withCSS(
   withSass({
     webpack: config => {
@@ -22,10 +20,6 @@ module.exports = withCSS(
       config.plugins.push(new webpack.EnvironmentPlugin(localEnv));
 
       return config;
-    },
-    publicRuntimeConfig: {
-      // Will be available on both server and client
-      host: process.env.HOST,
     },
   })
 );
