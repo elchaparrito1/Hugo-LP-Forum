@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import fetch from 'isomorphic-unfetch';
 
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -8,6 +9,7 @@ const url =
     : 'https://hugo-lp-forum.now.sh';
 
 const Form = () => {
+  console.log(process.env.NODE_ENV);
   const [state, setState] = useState({
     rsvp: 'yes',
     firstName: '',
