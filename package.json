@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "lint": "eslint",
     "lint:fix": "eslint . --fix",
     "css:build": "node-sass --omit-source-map-url assets/sass/style.scss static/css/styles.css",

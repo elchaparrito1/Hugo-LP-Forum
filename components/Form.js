@@ -35,6 +35,10 @@ const Form = () => {
     setBlank(false);
     const res = await fetch(`/api/rsvp`, {
       method: 'post',
+      header: {
+        'Content-Type': 'application/json',
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
       body: JSON.stringify(state),
     });
 
