@@ -4,10 +4,14 @@
             "MONGO_URI": "@mongo-uri"
         }
     },
+    "builds": [],
     "routes": [
         {
-            "src": "/api/rsvp",
-            "dest": "https://hugo-lp-forum.now.sh/form"
+            "src": "/api/*",
+            "dest": "/form",
+            "methods": [
+                "POST"
+            ]
         }
     ]
 }
