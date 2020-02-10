@@ -42,8 +42,6 @@ const Form = () => {
       body: JSON.stringify(state),
     });
 
-    console.log(res);
-
     if (res.status === 200) {
       setState({
         rsvp: 'yes',
