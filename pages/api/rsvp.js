@@ -21,17 +21,3 @@ const handler = async (req, res) => {
 };
 
 export default middleware(handler);
-
-// handler.post(async (req, res) => {
-//   let data = req.body;
-//   data = JSON.parse(data);
-//   const doc = await req.db.collection('rsvp').insertOne({
-//     rsvp: data.rsvp,
-//     email: data.email,
-//     firstName: data.firstName,
-//     lastName: data.lastName,
-//     company: data.company,
-//   });
-
-//   res.status(200).json({ message: 'reserved' });
-// });

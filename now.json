@@ -3,5 +3,14 @@
         "env": {
             "MONGO_URI": "@mongo-uri"
         }
-    }
+    },
+    "routes": [
+        {
+            "src": "/components/Form.js",
+            "methods": [
+                "POST"
+            ],
+            "dest": "/api/rsvp.js"
+        }
+    ]
 }
