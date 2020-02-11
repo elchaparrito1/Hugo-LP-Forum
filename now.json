@@ -6,11 +6,11 @@
     },
     "routes": [
         {
-            "src": "/components/Form.js",
+            "src": "/form.js",
             "methods": [
                 "POST"
             ],
-            "dest": "/api/rsvp.js"
+            "dest": "/api/rsvp"
         }
     ]
 }
