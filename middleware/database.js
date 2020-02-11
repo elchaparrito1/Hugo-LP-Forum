@@ -1,20 +1,18 @@
 import { MongoClient } from 'mongodb';
-import nextConnect from 'next-connect';
 
 const client = new MongoClient(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-async function database(req, res, next) {
-  if (!client.isConnected()) await client.connect();
-  req.dbClient = client;
+const withDatabase = handler => (req, res) => {
+  if (!client.isConnected()) {
+    return client.connect().then(() => {
+      req.db = client.db('hugo');
+      return handler(req, res);
+    });
+  }
   req.db = client.db('hugo');
-  return next();
-}
-
-const middleware = nextConnect();
-
-middleware.use(database);
-
-export default middleware;
+  return handler(req, res);
+};
+export default withDatabase;

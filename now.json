@@ -3,15 +3,5 @@
         "env": {
             "MONGO_URI": "@mongo-uri"
         }
-    },
-    "builds": [],
-    "routes": [
-        {
-            "src": "/api/*",
-            "dest": "/form",
-            "methods": [
-                "POST"
-            ]
-        }
-    ]
+    }
 }
